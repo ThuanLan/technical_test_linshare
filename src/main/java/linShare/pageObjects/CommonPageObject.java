@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import commons.VerifyHelper;
 import linShare.pageUIs.CommonPageUI;
+import linShare.pageUIs.MySpacePageUI;
 import commons.AbstractPages;
 
 public class CommonPageObject extends AbstractPages {
@@ -38,10 +39,12 @@ public class CommonPageObject extends AbstractPages {
 		}
 	}
 
-	public void clickOnTheLeftMenu() {
-		waitToElementClickable(driver, CommonPageUI.DYNAMIC_MENU_LINK, "My space");
-		clickToElement(driver, CommonPageUI.DYNAMIC_MENU_LINK, "My space");
+	public void clickOnTheLeftMenu(String leftMenuName) {
+		waitToElementClickable(driver, CommonPageUI.DYNAMIC_MENU_LINK, leftMenuName);
+		clickToElement(driver, CommonPageUI.DYNAMIC_MENU_LINK, leftMenuName);
 		sleepInSecond(5);
+		
 	}
+
 
 }

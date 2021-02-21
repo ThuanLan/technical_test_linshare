@@ -1,4 +1,4 @@
-package linshare.stepDefinitions;
+package linShare.stepDefinitions;
 
 import org.openqa.selenium.WebDriver;
 

@@ -37,5 +37,5 @@ public class CommonPageUI {
 	// Common UI Expand menu
 	public static final String MENU_TOGGLE = "//a[@id='menu_toggle']";
 	public static final String MENU_TOGGLE_DISABLE = "//body[@class='nav-sm']";
-
+	public static final String TABLE_TOTAL_ROW = "//table//tbody//tr";
 }

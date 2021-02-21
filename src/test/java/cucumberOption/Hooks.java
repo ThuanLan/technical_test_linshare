@@ -67,7 +67,6 @@ public class Hooks {
 					throw new RuntimeException("Please choose your browser!");
 				}
 			}
-			// Code này luôn luôn được chạy dù pass hay fail.
 			finally {
 				Runtime.getRuntime().addShutdownHook(new Thread(new BrowserCleanup()));
 			}

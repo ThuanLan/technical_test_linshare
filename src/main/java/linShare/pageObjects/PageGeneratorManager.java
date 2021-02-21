@@ -15,5 +15,12 @@ public class PageGeneratorManager {
 	public static CommonPageObject getCommonPage(WebDriver driver) {
 		return new CommonPageObject(driver);
 	}
+	
+	public static MySpacePageObject getMySpacePage(WebDriver driver) {
+		return new MySpacePageObject(driver);
+	}
+	public static SharedSpacePageObject getSharedSpacePage(WebDriver driver) {
+		return new SharedSpacePageObject(driver);
+	}
 
 }
