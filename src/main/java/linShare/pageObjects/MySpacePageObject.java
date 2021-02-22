@@ -19,34 +19,37 @@ public class MySpacePageObject extends AbstractPages {
 		driver = _driver;
 	}
 
-	public String getLoginPageUrl() {
-		getCurrentPageUrl(driver);
-		return getCurrentPageUrl(driver);
-	}
-
 	public void clicktoViewMoreActions() {
 		clickOnRandomFile();
 	}
 
 	public String clickOnRandomFile() {
 		int totalRowTable = findElementsByXpath(driver, CommonPageUI.TABLE_TOTAL_ROW).size();
-		String rowNumber = String.valueOf(randomRowNumber(totalRowTable));
-		System.out.println("Hang ngau nhien: " + rowNumber);
-		waitToElementClickable(driver, MySpacePageUI.TABLE_VIEW_MORE_ICON, rowNumber);
-		getFileName = getTextElement(driver, MySpacePageUI.WORK_GROUP, rowNumber);
-		clickToElement(driver, MySpacePageUI.TABLE_VIEW_MORE_ICON, rowNumber);
-		sleepInSecond(5);
+		if (totalRowTable >= 1) {
+			String rowNumber = String.valueOf(randomRowNumber(totalRowTable));
+			System.out.println("Hang ngau nhien: " + rowNumber);
+			waitToElementClickable(driver, MySpacePageUI.TABLE_VIEW_MORE_ICON, rowNumber);
+			getFileName = getTextElement(driver, MySpacePageUI.TABLE_FILE_NAME, rowNumber);
+			clickToElement(driver, MySpacePageUI.TABLE_VIEW_MORE_ICON, rowNumber);
+			// sleepInSecond(5);
+		} else {
+			System.out.println("No data found!");
+		}
 		return getFileName;
 	}
 
 	public String clickOnRandomWorkGroup() {
 		int totalGroups = findElementsByXpath(driver, MySpacePageUI.TOTAL_WORK_GROUP).size();
-		String rowNumber = String.valueOf(randomRowNumber(totalGroups));
-		System.out.println("Group ngau nhien: " + rowNumber);
-		waitToElementClickable(driver, MySpacePageUI.WORK_GROUP, rowNumber);
-		getWorkSpace = getTextElement(driver, MySpacePageUI.WORK_GROUP, rowNumber);
-		clickToElement(driver, MySpacePageUI.WORK_GROUP, rowNumber);
-		sleepInSecond(5);
+		if (totalGroups >= 1) {
+			String rowNumber = String.valueOf(randomRowNumber(totalGroups));
+			System.out.println("Group ngau nhien: " + rowNumber);
+			waitToElementClickable(driver, MySpacePageUI.WORK_GROUP, rowNumber);
+			getWorkSpace = getTextElement(driver, MySpacePageUI.WORK_GROUP, rowNumber);
+			clickToElement(driver, MySpacePageUI.WORK_GROUP, rowNumber);
+			sleepInSecond(5);
+		} else {
+			System.out.println("No data found!");
+		}
 		return getWorkSpace;
 	}
 
@@ -62,13 +65,11 @@ public class MySpacePageObject extends AbstractPages {
 
 	public void selectAWorkGroup() {
 		clickOnRandomWorkGroup();
-
 	}
 
 	public void clickOnCopyHereButton() {
 		waitToElementClickable(driver, MySpacePageUI.COPY_HERE_BUTTON);
 		clickToElement(driver, MySpacePageUI.COPY_HERE_BUTTON);
-
 	}
 
 }

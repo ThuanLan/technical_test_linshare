@@ -29,8 +29,7 @@ public class SharedSpacePageSteps {
 
 	@Then("^Verify if the file is copied to workgroup successfully$")
 	public void verifyIfTheFileIsCopiedToWorkgroupSuccessfully() {
-		sharedSpacePage.isFileDisplayed();
-		//Assert.assertTrue();
+		Assert.assertTrue(sharedSpacePage.isFileDisplayed());
 	}
 
 }

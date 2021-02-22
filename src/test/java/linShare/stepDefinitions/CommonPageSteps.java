@@ -27,6 +27,7 @@ public class CommonPageSteps {
 	
 	@When("^Click on a \"([^\"]*)\" menu on the left menu$")
 	public void clickOnAMenuOnTheLeftMenu(String leftMenuName)  {
+		commonPage.selectUSLanguage();
 		commonPage.clickOnTheLeftMenu(leftMenuName);
 	}
 

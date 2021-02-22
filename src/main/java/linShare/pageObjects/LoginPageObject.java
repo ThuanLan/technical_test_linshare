@@ -15,11 +15,6 @@ public class LoginPageObject extends AbstractPages {
 		driver = _driver;
 	}
 
-	public String getLoginPageUrl() {
-		getCurrentPageUrl(driver);
-		return getCurrentPageUrl(driver);
-	}
-
 	public void goToTheWebsite() {
 		waitToElementVisible(driver, LoginPageUI.USER_NAME_TXT);
 		sendkeyToElement(driver, LoginPageUI.USER_NAME_TXT, GlobalConstants.USERNAME);

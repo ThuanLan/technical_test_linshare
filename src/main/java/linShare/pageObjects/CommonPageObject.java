@@ -25,26 +25,17 @@ public class CommonPageObject extends AbstractPages {
 		driver = _driver;
 	}
 
-	public void goToChildPageFromMenu(WebDriver driver, String childMenuName, String parentMenuName) {
-		// check toggle is expanding.
-		if (isElementUndisplayed(driver, CommonPageUI.MENU_TOGGLE_DISABLE)) {
-			clickToElement(driver, CommonPageUI.DYNAMIC_MENU_LINK, parentMenuName);
-			clickToElementByJS(driver, CommonPageUI.DYNAMIC_CHILD_MENU_LINK, childMenuName);
-			sleepInSecond(1);
-		} else {
-			clickToElement(driver, CommonPageUI.MENU_TOGGLE);
-			clickToElement(driver, CommonPageUI.DYNAMIC_MENU_LINK, parentMenuName);
-			clickToElement(driver, CommonPageUI.DYNAMIC_CHILD_MENU_LINK, childMenuName);
-			sleepInSecond(1);
-		}
-	}
-
 	public void clickOnTheLeftMenu(String leftMenuName) {
 		waitToElementClickable(driver, CommonPageUI.DYNAMIC_MENU_LINK, leftMenuName);
 		clickToElement(driver, CommonPageUI.DYNAMIC_MENU_LINK, leftMenuName);
-		sleepInSecond(5);
-		
+		sleepInSecond(1);
 	}
 
+	public void selectUSLanguage() {
+		if (isElementUndisplayed(driver, CommonPageUI.US_LANGUAGE_DROPDOWN)) {
+			selectItemInCustomDropdown(driver,CommonPageUI.CURRENT_LANGUAGE_ICON,CommonPageUI.LANGUAGE_DROPDOWN,"US");
+			sleepInSecond(5);
+		}
+	}
 
 }

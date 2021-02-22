@@ -12,27 +12,18 @@ import cucumber.api.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Hooks {
-	// Run for many thread
 	private static WebDriver driver;
 	private static final Logger log = Logger.getLogger(Hooks.class.getName());
 
-	@Before // synchronized = handle đồng bộ
+	@Before 
 	public synchronized static WebDriver getAndCloseBrowser() {
-		// Run by Maven command line
 		String browser = System.getProperty("BROWSER");
 
-		// Check driver đã được khởi tạo hay chưa?
 		if (driver == null) {
-
-			// Happy path case
 			try {
-				// Kiem tra BROWSER = null -> gan = chrome/ firefox (browser default for
-				// project)
 				if (browser == null) {
-					// Get browser name from Environment Variable in OS
 					browser = System.getenv("BROWSER");
 					if (browser == null) {
-						// Set default browser
 						browser = "chrome";
 					}
 				}
